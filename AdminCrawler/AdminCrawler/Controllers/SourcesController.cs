@@ -307,7 +307,7 @@ namespace AdminCrawler.Controllers
         {
             if (sourceCheck.SubUrl != "" && sourceCheck.SelectorTitle != "" && sourceCheck.SelectorDescription != ""
                 && sourceCheck.SelectorContent != "" && sourceCheck.SelectorSubUrl != ""
-                && sourceCheck.SelectorImage != "" && sourceCheck.Category.ToString() != "")
+                && sourceCheck.SelectorImage != "" )
             {
                 try
                 {
@@ -335,7 +335,7 @@ namespace AdminCrawler.Controllers
                         Description = description,
                         Content = content,
                         Image = thumbnail,
-                        Category = db.Categories.Find(category).Name,
+                        //Category = db.Categories.Find(category).Name,
 
                     };
 
@@ -350,12 +350,19 @@ namespace AdminCrawler.Controllers
             return PartialView("Faild");
         }
 
-        [HttpPost, ActionName("CreateSourse")]
-        public JsonResult CreateSourse(Source sourse)
+        [HttpPost, ActionName("CreateSource")]
+        public JsonResult CreateSource([Bind(Include = "Id,Url,Tag,SelectorSubUrl,SubUrl,SelectorTitle,SelectorImage,SelectorDescription,SelectorContent,CategoryId,ArticleId")] Source source)
         {
-            db.Sources.Add(sourse);
-            db.SaveChanges();
-            return Json("success", JsonRequestBehavior.AllowGet);
+            try
+            {
+                db.Sources.Add(source);
+                db.SaveChanges();
+                return Json("success", JsonRequestBehavior.AllowGet);
+            }
+            catch(Exception e)
+            {
+                return Json(e, JsonRequestBehavior.AllowGet);
+            }           
         }
 
     }

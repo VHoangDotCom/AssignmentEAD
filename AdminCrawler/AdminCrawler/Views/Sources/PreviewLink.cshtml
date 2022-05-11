@@ -3,7 +3,7 @@
 
 <h2>CheckSource</h2>
 
-@using (Ajax.BeginForm("CheckLink", "Sourses",
+@using (Ajax.BeginForm("CheckLink", "Sources",
 new AjaxOptions
 {
     InsertionMode = InsertionMode.Replace,
@@ -27,7 +27,7 @@ new AjaxOptions
                 <div class="form-group">
                     @Html.LabelFor(model => model.Url, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @class = "form-control url" } })
                         @Html.ValidationMessageFor(model => model.Url, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -35,7 +35,7 @@ new AjaxOptions
                 <div class="form-group">
                     @Html.LabelFor(model => model.SelectorSubUrl, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.SelectorSubUrl, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.SelectorSubUrl, new { htmlAttributes = new { @class = "form-control selectorUrl" } })
                         @Html.ValidationMessageFor(model => model.SelectorSubUrl, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -62,7 +62,7 @@ new AjaxOptions
 </div>
 
 
-@using (Ajax.BeginForm("Preview", "Sourses",
+@using (Ajax.BeginForm("Preview", "Sources",
 new AjaxOptions
 {
     InsertionMode = InsertionMode.Replace,
@@ -87,15 +87,23 @@ new AjaxOptions
                 <div class="form-group">
                     @Html.LabelFor(model => model.SubUrl, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.SubUrl, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.SubUrl, new { htmlAttributes = new { @class = "form-control " } })
                         @Html.ValidationMessageFor(model => model.SubUrl, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Tag, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Tag, new { htmlAttributes = new { @class = "form-control tag" } })
+                        @Html.ValidationMessageFor(model => model.Tag, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.SelectorTitle, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.SelectorTitle, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.SelectorTitle, new { htmlAttributes = new { @class = "form-control selectorTitle" } })
                         @Html.ValidationMessageFor(model => model.SelectorTitle, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -103,28 +111,28 @@ new AjaxOptions
                 <div class="form-group">
                     @Html.LabelFor(model => model.SelectorImage, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.SelectorImage, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.SelectorImage, new { htmlAttributes = new { @class = "form-control selImage" } })
                         @Html.ValidationMessageFor(model => model.SelectorImage, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.SelectorDescription, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.SelectorDescription, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.SelectorDescription, new { htmlAttributes = new { @class = "form-control selDesc" } })
                         @Html.ValidationMessageFor(model => model.SelectorDescription, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.SelectorContent, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.SelectorContent, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.SelectorContent, new { htmlAttributes = new { @class = "form-control selCo" } })
                         @Html.ValidationMessageFor(model => model.SelectorContent, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.Category, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        <select id="ddlColors" name="category" runat="server">
+                        <select id="ddlColors" class="category" name="category" runat="server">
                             <option value=-1>Chọn danh mục</option>
                             @foreach (var category in ViewBag.ListCategory)
                             {
@@ -139,7 +147,9 @@ new AjaxOptions
 
                     <div class="col-md-2 col-lg-offset-2">
                         <input type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal1" value="Preview" />
-
+                    </div>
+                    <div class="col-md-2 col-lg-offset-2">
+                        <input type="submit" class="btn btn-primary" onclick="saveSource()" value="Save" />
                     </div>
                 </div>
             </div>
@@ -159,13 +169,43 @@ new AjaxOptions
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     @Scripts.Render("~/bundles/bootstrap")
     <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
     <script>
         $('#exampleModal').on('.exampleModal', function () {
             $('#exampleModal').trigger('focus')
         })
+        function saveSource() {
+            var data = {
+                Url: $('.url').val(),
+                Tag: $('.tag').val(),
+                SelectorSubUrl: $('.selectorUrl').val(),
+                SubUrl: null,
+                SelectorTitle: $('.selectorTitle').val(),
+                SelectorImage: $('.selImage').val(),
+                SelectorContent: $('.selCo').val(),
+                SelectorDescription: $('.selDesc').val(),
+                CategoryId: parseInt($('.category').val()),
+                ArticleId: null,
+            }
+            console.log(JSON.stringify(data));
+            $.ajax({
+                url: "/Sources/CreateSource",
+                dataType: "json",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(data),
+                async: true,
+                processData: false,
+                cache: false,
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (xhr) {
+                    alert(JSON.stringify(xhr));
+                }
+            });
+        }
     </script>
 }
