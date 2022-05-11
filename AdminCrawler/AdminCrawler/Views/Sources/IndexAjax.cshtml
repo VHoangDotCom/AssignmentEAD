@@ -1,0 +1,88 @@
+﻿@model PagedList.IPagedList<AdminCrawler.Models.Source>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+<div id="resultId">
+    <table class="table">
+        <tr>
+            <th>
+                Category name
+            </th>
+            <th>
+                Url
+            </th>
+            <th>
+                @Html.ActionLink("Tag", "Index", new { sortOrder = ViewBag.TagSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th>
+                SelectorSubUrl
+            </th>
+            <th>
+                SubUrl
+            </th>
+            <th>
+                SelectorTitle
+            </th>
+            <th>
+                SelectorImage
+            </th>
+            <th>
+                SelectorDescription
+            </th>
+            <th>
+                SelectorContent
+            </th>
+            <th>
+                Article Id
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Url)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tag)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SelectorSubUrl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubUrl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SelectorTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SelectorImage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SelectorDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SelectorContent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArticleId)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+        new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>
