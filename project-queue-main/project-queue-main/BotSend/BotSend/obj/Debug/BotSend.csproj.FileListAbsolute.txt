@@ -122,3 +122,9 @@ D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-ma
 D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-main\project-queue-main\BotSend\BotSend\obj\Debug\BotSend.csproj.CopyComplete
 D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-main\project-queue-main\BotSend\BotSend\obj\Debug\BotSend.exe
 D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-main\project-queue-main\BotSend\BotSend\obj\Debug\BotSend.pdb
+D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-main\project-queue-main\BotSend\BotSend\bin\Debug\Elasticsearch.Net.dll
+D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-main\project-queue-main\BotSend\BotSend\bin\Debug\Nest.dll
+D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-main\project-queue-main\BotSend\BotSend\bin\Debug\Elasticsearch.Net.pdb
+D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-main\project-queue-main\BotSend\BotSend\bin\Debug\Elasticsearch.Net.xml
+D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-main\project-queue-main\BotSend\BotSend\bin\Debug\Nest.pdb
+D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-main\project-queue-main\BotSend\BotSend\bin\Debug\Nest.xml

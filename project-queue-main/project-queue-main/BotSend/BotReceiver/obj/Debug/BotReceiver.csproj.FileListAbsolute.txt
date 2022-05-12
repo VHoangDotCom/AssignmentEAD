@@ -110,3 +110,11 @@ D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-ma
 D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-main\project-queue-main\BotSend\BotReceiver\obj\Debug\BotReceiver.csproj.CopyComplete
 D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-main\project-queue-main\BotSend\BotReceiver\obj\Debug\BotReceiver.exe
 D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-main\project-queue-main\BotSend\BotReceiver\obj\Debug\BotReceiver.pdb
+D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-main\project-queue-main\BotSend\BotReceiver\bin\Debug\Elasticsearch.Net.dll
+D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-main\project-queue-main\BotSend\BotReceiver\bin\Debug\Nest.dll
+D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-main\project-queue-main\BotSend\BotReceiver\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-main\project-queue-main\BotSend\BotReceiver\bin\Debug\Elasticsearch.Net.pdb
+D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-main\project-queue-main\BotSend\BotReceiver\bin\Debug\Elasticsearch.Net.xml
+D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-main\project-queue-main\BotSend\BotReceiver\bin\Debug\Nest.pdb
+D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-main\project-queue-main\BotSend\BotReceiver\bin\Debug\Nest.xml
+D:\epc\Ap-Sem3\Enterprise Application Programming\AssignmentEAD\project-queue-main\project-queue-main\BotSend\BotReceiver\bin\Debug\System.Diagnostics.DiagnosticSource.xml
