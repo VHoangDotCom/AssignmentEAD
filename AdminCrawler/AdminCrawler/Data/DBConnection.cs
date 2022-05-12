@@ -9,7 +9,7 @@ namespace AdminCrawler.Data
 {
     public class DBConnection : DbContext
     {
-        public DBConnection() : base("name=CrawDB")
+        public DBConnection() : base("name=CrawlerDB")
         {
         }
 

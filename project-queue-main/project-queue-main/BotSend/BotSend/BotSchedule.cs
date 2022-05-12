@@ -84,6 +84,76 @@ namespace BotSend
             // and last shut down the scheduler when you are ready to close your program
             await scheduler.Shutdown();
         }
+
+        public async Task Execute_Every_Wednesday(DayOfWeek day, string group)
+        {
+            // Grab the Scheduler instance from the Factory
+            StdSchedulerFactory factory = new StdSchedulerFactory();
+            IScheduler scheduler = await factory.GetScheduler();
+
+            // and start it off
+            await scheduler.Start();
+
+            // define the job and tie it to our HelloJob class
+            IJobDetail job = JobBuilder.Create<HelloJob>()
+                .WithIdentity("job1", "group1")
+                .Build();
+
+            //Trigger thuc hien moi thu tu hang tuan luc 10h42; timezone chinh sua
+            ITrigger trigger = TriggerBuilder.Create()
+                 .WithIdentity("trigger3", group)
+                 .WithSchedule(CronScheduleBuilder
+                     .WeeklyOnDayAndHourAndMinute(day, 10, 42)
+                     .InTimeZone(TimeZoneInfo.FindSystemTimeZoneById("Central America Standard Time")))
+                 .ForJob("job1", group)
+                 .Build();
+
+
+            // Tell quartz to schedule the job using our trigger
+            await scheduler.ScheduleJob(job, trigger);
+
+            // some sleep to show what's happening
+            await Task.Delay(TimeSpan.FromSeconds(60));
+
+            // and last shut down the scheduler when you are ready to close your program
+            await scheduler.Shutdown();
+        }
+
+        public async Task Execute_Every_Hour(int hour)
+        {
+            // Grab the Scheduler instance from the Factory
+            StdSchedulerFactory factory = new StdSchedulerFactory();
+            IScheduler scheduler = await factory.GetScheduler();
+
+            // and start it off
+            await scheduler.Start();
+
+            // define the job and tie it to our HelloJob class
+            IJobDetail job = JobBuilder.Create<HelloJob>()
+                .WithIdentity("job1", "group1")
+                .Build();
+
+            //Thuc hien so gio nhap vao moi lan
+            ITrigger trigger = TriggerBuilder.Create()
+                .WithIdentity("trigger1", "group1")
+                .StartNow()
+                .WithSimpleSchedule(x => x
+                    .WithIntervalInHours(hour)
+                    .RepeatForever())
+                .Build();
+
+
+            // Tell quartz to schedule the job using our trigger
+            await scheduler.ScheduleJob(job, trigger);
+
+            // some sleep to show what's happening
+            await Task.Delay(TimeSpan.FromSeconds(60));
+
+            // and last shut down the scheduler when you are ready to close your program
+            await scheduler.Shutdown();
+        }
+
+
     }
 
     public class HelloJob : IJob
